@@ -11,6 +11,7 @@
         </button>
       </div>
     </div>
+    <Registration></Registration>
   </div>
 </template>
 
@@ -18,7 +19,7 @@
 import axios from "axios";
 import store from "../../store";
 import * as type from "../../types";
-
+import Registration from "./Registration";
 export default {
   name: "Login",
 
@@ -27,6 +28,9 @@ export default {
       login: "",
       pwd: "",
     };
+  },
+  components: {
+    Registration,
   },
 
   methods: {
