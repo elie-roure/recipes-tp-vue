@@ -1,11 +1,19 @@
 <template>
-  <div class="footer">
-    <p>
-      <a target="_blank" href="https://github.com/Tyki/VueJS-Formation">
-        Lien du cours
-      </a>
-    </p>
-  </div>
+  <footer class="page-footer">
+    <div class="container">
+      <div class="row">
+        <div class="footer">
+          <h5 class="white-text">Footer Content</h5>
+          <p class="grey-text text-lighten-4">
+            You can use rows and columns here to organize your footer content.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">© 2022 Copyright Text</div>
+    </div>
+  </footer>
 </template>
 
 <script>
@@ -16,15 +24,11 @@ export default {
 
 <style scoped>
 .footer {
-  text-align: left;
-  background-color: #41b883;
-  height: 10rem;
-  display: flex;
+  margin: auto;
   justify-content: center;
 }
 a {
   margin: auto;
-  color: #35495e;
 }
 </style>
 

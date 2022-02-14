@@ -7,9 +7,9 @@
 </template>
 
 <script>
-import Header from "./components/Header";
-import Body from "./components/Body";
-import Footer from "./components/Footer";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import { mapState } from "vuex";
 
 export default {
   name: "App",
@@ -17,6 +17,23 @@ export default {
     Header,
     Footer,
   },
+  updated() {
+    console.log("toto");
+
+    console.log(this.user);
+    if (
+      this.$route.name !== "Login" &&
+      this.$route.name !== "Register" &&
+      this.user === ""
+    ) {
+      console.log("redirection");
+      this.$router.push({ name: "Login" });
+    }
+  },
+
+  computed: mapState({
+    user: (state) => state.user,
+  }),
 };
 </script>
 

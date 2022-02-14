@@ -11,7 +11,10 @@
         </button>
       </div>
     </div>
-    <Registration></Registration>
+    <div>
+      <p>Pas encore de compte ?</p>
+      <router-link to="/register">S'enregistrer</router-link>
+    </div>
   </div>
 </template>
 
@@ -19,7 +22,6 @@
 import axios from "axios";
 import store from "../../store";
 import * as type from "../../types";
-import Registration from "./Registration";
 export default {
   name: "Login",
 
@@ -29,33 +31,22 @@ export default {
       pwd: "",
     };
   },
-  components: {
-    Registration,
-  },
+  components: {},
 
   methods: {
     seConnecter: function (e) {
       console.log(this.login + " " + this.pwd);
-      /*axios({
-        method: "post",
-        url: "http://localhost:5000/login",
-        data: {
-          name: this.login,
-          password: this.pwd,
-        },
-      });*/
       axios
-        .post("http://localhost:5000/login", {
+        .post("http://localhost:62000/login", {
           name: this.login,
           password: this.pwd,
         })
         .then(function (response) {
-          console.log(response);
           store.dispatch({
             type: type.AddJwt,
             jwt: response.data.jwt,
+            user: response.data.user,
           });
-          console.log("login " + response.data.jwt);
         })
         .catch(function (error) {
           console.log(error);

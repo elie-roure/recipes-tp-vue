@@ -21,7 +21,7 @@ export default {
     console.log("private" + this.token);
     const config = { headers: { Authorization: `Bearer ${this.token}` } };
 
-    axios.get("http://localhost:5000/private", config).then((response) => {
+    axios.get("http://localhost:62000/private", config).then((response) => {
       console.log(response);
     });
   },

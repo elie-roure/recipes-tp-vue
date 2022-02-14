@@ -1,13 +1,13 @@
 import Vue from "vue";
 import App from "./App.vue";
-import Router from "./router";
+import router from "./router";
 
 import store from "./store";
+import moment from "moment";
 
 Vue.config.productionTip = false;
-
 new Vue({
-  router: Router,
+  router: router,
   store,
   render: (h) => h(App)
 }).$mount("#app");
@@ -19,3 +19,9 @@ new Vue({
   template: "<App/>",
   components: { App }
 });*/
+
+Vue.filter("formatDate", function (value) {
+  if (value) {
+    return moment(String(value)).format("HH:mm");
+  }
+});
