@@ -1,18 +1,8 @@
 <template>
-  <div class="container">
+  <div class="">
     <div class="row">
       <h5>Recipes</h5>
-      <table>
-        <thead>
-          <tr>
-            <th>Titre</th>
-            <th>Temps</th>
-            <th>Produit ?</th>
-            <th>Createur</th>
-          </tr>
-        </thead>
-        <tbody>
-          <Recipe
+          <Recipe class="col s3"
             v-for="(recipe, key) in recipes"
             :title="recipe.title"
             :time="recipe.time"
@@ -21,8 +11,6 @@
             :id="recipe._id"
             :key="key"
           ></Recipe>
-        </tbody>
-      </table>
     </div>
   </div>
 </template>
@@ -49,4 +37,8 @@ export default {
 </script>
 
 <style scoped>
+
+.padding-left {
+  padding-left: 5rem;
+}
 </style>

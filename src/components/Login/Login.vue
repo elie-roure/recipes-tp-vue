@@ -2,8 +2,8 @@
   <div class="container">
     <div class="field is-grouped">
       <div class="control">
-        <label for="login">Login : </label>
-        <input type="text" name="login" id="login" v-model="login" />
+        <label for="username">Username : </label>
+        <input type="text" name="username" id="username" v-model="username" />
         <label for="pwd">Password : </label>
         <input type="password" name="pwd" id="pwd" v-model="pwd" />
         <button class="button is-primary" v-on:click="seConnecter()">
@@ -35,10 +35,11 @@ export default {
 
   methods: {
     seConnecter: function (e) {
-      console.log(this.login + " " + this.pwd);
+      let self = this;
+      console.log(this.username + " " + this.pwd);
       axios
         .post("http://localhost:62000/login", {
-          name: this.login,
+          name: this.username,
           password: this.pwd,
         })
         .then(function (response) {
@@ -47,6 +48,8 @@ export default {
             jwt: response.data.jwt,
             user: response.data.user,
           });
+          console.log("avant redirection");
+          self.$router.push({ name: "Home" });
         })
         .catch(function (error) {
           console.log(error);
