@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Body from "./Body";
+import Body from "@/components/Body";
 
 export default {
   name: "Home",

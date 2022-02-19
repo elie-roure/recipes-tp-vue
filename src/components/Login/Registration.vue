@@ -19,8 +19,8 @@
 <script>
 import axios from "axios";
 
-import store from "../../store";
-import * as type from "../../types";
+import store from "@/store/store";
+import * as type from "@/types/types";
 
 export default {
   name: "Registration",

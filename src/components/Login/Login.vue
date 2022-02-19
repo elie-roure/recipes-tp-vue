@@ -20,14 +20,14 @@
 
 <script>
 import axios from "axios";
-import store from "../../store";
-import * as type from "../../types";
+import store from "@/store/store";
+import * as type from "@/types/types";
 export default {
   name: "Login",
 
   data() {
     return {
-      login: "",
+      username: "",
       pwd: "",
     };
   },
@@ -43,6 +43,7 @@ export default {
           password: this.pwd,
         })
         .then(function (response) {
+          console.log("ID : " + response.data.user._id);
           store.dispatch({
             type: type.AddJwt,
             jwt: response.data.jwt,
