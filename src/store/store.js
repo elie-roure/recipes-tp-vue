@@ -25,18 +25,16 @@ export const store = new Vuex.Store({
         products: payload.products,
         time: payload.time,
         creator: payload.creator,
-        image: payload.image,
-        file: payload.file
+        imageData: payload.imageData
       };
       Helper.updateRecipeHelper(state.jwt, recipe);
     },
     createRecipe(state, payload) {
       let recipe = {
-        _id: payload._id,
         title: payload.title,
         products: payload.products,
         time: payload.time,
-        creator: payload.creator,
+        creator: state.user._id,
         image: payload.image,
         file: payload.file
       };

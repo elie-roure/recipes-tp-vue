@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const urlServer = "http://localhost:62000";
-
+/*LOGIN */
 export async function loginHelper(username, pwd) {
   let res;
   await axios
@@ -17,7 +17,7 @@ export async function loginHelper(username, pwd) {
     });
   return res;
 }
-
+/*REGISTER */
 export async function registerHelper(params) {
   let res;
   await axios
@@ -34,7 +34,7 @@ export async function registerHelper(params) {
     });
   return res;
 }
-
+/*CRUD RECIPES */
 export function updateRecipeHelper(jwt, recipe) {
   const config = { headers: { Authorization: `Bearer ${jwt}` } };
   axios
@@ -42,15 +42,6 @@ export function updateRecipeHelper(jwt, recipe) {
     .then((response) => {
       console.log(response);
     });
-
-  const body = {
-    body: {
-      Data: recipe.image
-    }
-  };
-  axios.post(`${urlServer}/image`, body, config).then((response) => {
-    console.log(response);
-  });
 }
 export function deleteRecipeHelper(jwt, id) {
   const config = {
@@ -62,7 +53,10 @@ export function deleteRecipeHelper(jwt, id) {
 }
 
 export function createRecipeHelper(jwt, recipe) {
-  console.log("createRecipe");
+  const config = { headers: { Authorization: `Bearer ${jwt}` } };
+  axios.post(`${urlServer}/recipes/`, recipe, config).then((response) => {
+    console.log(response);
+  });
 }
 
 export async function getAllRecipesHelper() {

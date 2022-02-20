@@ -10,7 +10,7 @@
         :products="recipe.products"
         :creator="recipe.creator"
         :id="recipe._id"
-        :image="recipe.image"
+        :imageData="recipe.imageData"
         :key="key"
       ></Recipe>
     </div>

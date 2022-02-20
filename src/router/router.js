@@ -5,6 +5,7 @@ import Private from "@/components/Private";
 import Login from "@/components/Login/Login";
 import Registration from "@/components/Login/Registration";
 import RecipeDetail from "@/components/Recipes/RecipeDetail";
+import CreateRecipe from "@/components/Recipes/CUD/CreateRecipe";
 
 Vue.use(VueRouter);
 
@@ -34,6 +35,11 @@ export default new VueRouter({
       path: `/recipe/:id`,
       component: RecipeDetail,
       name: "RecipeDetail"
+    },
+    {
+      path: `/createRecipe`,
+      component: CreateRecipe,
+      name: "CreateRecipe"
     }
   ]
 });

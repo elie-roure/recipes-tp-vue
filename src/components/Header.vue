@@ -6,7 +6,7 @@
       </div>
       <ul id="nav-mobile" class="left hide-on-med-and-down">
         <li><router-link to="/">Home</router-link></li>
-        <li><router-link to="/">Recettes</router-link></li>
+        <li><router-link to="/createRecipe">Ajouter Recettes</router-link></li>
       </ul>
     </div>
   </nav>

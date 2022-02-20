@@ -28,7 +28,7 @@
 export default {
   name: "Recipe",
   components: {},
-  props: ["title", "time", "products", "creator", "id", "image"],
+  props: ["title", "time", "products", "creator", "id", "imageData"],
   data() {
     return {
       srcImage: "",
@@ -40,24 +40,12 @@ export default {
     },
   },
   created() {
-    if (this.image !== undefined) {
-      console.log("image : " + this.image);
-      this.srcImage = "https://recipestp-2fc5.restdb.io/media/" + this.image;
-
-      /*
-      const image = this.image;
-      const reader = new FileReader();
-      reader.readAsDataURL(image);
-      reader.onload = (e) => {
-        this.srcImage = e.target.result;
-        console.log(this.srcImage);
-      };*/
+    if (this.imageData !== undefined) {
+      this.srcImage = this.imageData;
     } else {
       this.srcImage =
         "https://recipestp-2fc5.restdb.io/media/6211906bf701f460000b0a6a";
     }
-    /*
-     */
   },
 };
 </script>
