@@ -1,7 +1,7 @@
 <template >
   <div class="card clickable" v-on:click="afficheDetail">
     <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" src="images/office.jpg" />
+      <img class="activator imageRecette" v-bind:src="srcImage" />
     </div>
     <div class="card-content">
       <span class="card-title activator grey-text text-darken-4">{{
@@ -28,11 +28,36 @@
 export default {
   name: "Recipe",
   components: {},
-  props: ["title", "time", "products", "creator", "id"],
+  props: ["title", "time", "products", "creator", "id", "image"],
+  data() {
+    return {
+      srcImage: "",
+    };
+  },
   methods: {
     afficheDetail() {
       this.$router.push({ name: "RecipeDetail", params: { id: this.id } });
     },
+  },
+  created() {
+    if (this.image !== undefined) {
+      console.log("image : " + this.image);
+      this.srcImage = "https://recipestp-2fc5.restdb.io/media/" + this.image;
+
+      /*
+      const image = this.image;
+      const reader = new FileReader();
+      reader.readAsDataURL(image);
+      reader.onload = (e) => {
+        this.srcImage = e.target.result;
+        console.log(this.srcImage);
+      };*/
+    } else {
+      this.srcImage =
+        "https://recipestp-2fc5.restdb.io/media/6211906bf701f460000b0a6a";
+    }
+    /*
+     */
   },
 };
 </script>
@@ -56,6 +81,12 @@ export default {
 
 .padding-left {
   padding-left: 5rem;
+}
+
+.imageRecette {
+  width: 15rem;
+  height: 15rem;
+  margin: auto;
 }
 </style>
 

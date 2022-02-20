@@ -17,10 +17,9 @@
 
 
 <script>
-import axios from "axios";
-
 import store from "@/store/store";
 import * as type from "@/types/types";
+import * as Helper from "@/helper/helper";
 
 export default {
   name: "Registration",
@@ -33,61 +32,30 @@ export default {
     };
   },
   methods: {
-    seConnecter: function (e) {
+    seConnecter: async function (e) {
       let self = this;
-
-      axios
-        .post("http://localhost:62000/login", {
-          name: this.name,
-          password: this.password,
-        })
-        .then(function (response) {
-          store.dispatch({
-            type: type.AddJwt,
-            jwt: response.data.jwt,
-            user: response.data.user,
-          });
-          console.log("avant redirection");
-          self.$router.push({ name: "Home" });
-        })
-        .catch(function (error) {
-          console.log(error);
+      let res = await Helper.loginHelper(this.username, this.password);
+      if (res !== undefined) {
+        store.dispatch({
+          type: type.AddJwt,
+          jwt: res.data.jwt,
+          user: res.data.user,
         });
-      self.$router.push({ name: "Home" });
+        self.$router.push({ name: "Home" });
+      }
     },
-    senregistrer: function (e) {
+    senregistrer: async function (e) {
       let self = this;
-
-      console.log(
-        "name : " +
-          this.name +
-          " password " +
-          this.password +
-          " mail : " +
-          this.mail
-      );
-
       const params = JSON.stringify({
         name: this.name,
         mail: this.mail,
         username: this.username,
         password: this.password,
       });
-      console.log(params);
-      axios
-        .post("http://localhost:62000/users", params, {
-          headers: {
-            "content-type": "application/json",
-          },
-        })
-        .then(function (response) {
-          console.log(response);
-          /*Connexion apres  registration*/
-          self.seConnecter();
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
+      let res = await Helper.registerHelper(params);
+      if (res !== undefined) {
+        self.seConnecter();
+      }
     },
   },
 };

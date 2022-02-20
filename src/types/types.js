@@ -1,5 +1,5 @@
 export const AddJwt = "addJwt";
-export const InitRecipes = "initRecipes";
+export const GetAllRecipes = "getAllRecipes";
 
 export const UpdateRecipe = "updateRecipe";
 export const CreateRecipe = "createRecipe";

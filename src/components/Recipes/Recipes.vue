@@ -10,6 +10,7 @@
         :products="recipe.products"
         :creator="recipe.creator"
         :id="recipe._id"
+        :image="recipe.image"
         :key="key"
       ></Recipe>
     </div>
@@ -28,7 +29,7 @@ export default {
   },
   created() {
     store.dispatch({
-      type: type.InitRecipes,
+      type: type.GetAllRecipes,
     });
   },
   computed: mapState({

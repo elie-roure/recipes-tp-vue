@@ -19,9 +19,9 @@
 </template>
 
 <script>
-import axios from "axios";
 import store from "@/store/store";
 import * as type from "@/types/types";
+import * as Helper from "@/helper/helper";
 export default {
   name: "Login",
 
@@ -34,33 +34,18 @@ export default {
   components: {},
 
   methods: {
-    seConnecter: function (e) {
+    seConnecter: async function (e) {
       let self = this;
-      console.log(this.username + " " + this.pwd);
-      axios
-        .post("http://localhost:62000/login", {
-          name: this.username,
-          password: this.pwd,
-        })
-        .then(function (response) {
-          console.log("ID : " + response.data.user._id);
-          store.dispatch({
-            type: type.AddJwt,
-            jwt: response.data.jwt,
-            user: response.data.user,
-          });
-          console.log("avant redirection");
-          self.$router.push({ name: "Home" });
-        })
-        .catch(function (error) {
-          console.log(error);
+      let res = await Helper.loginHelper(this.username, this.pwd);
+      if (res !== undefined) {
+        store.dispatch({
+          type: type.AddJwt,
+          jwt: res.data.jwt,
+          user: res.data.user,
         });
+        self.$router.push({ name: "Home" });
+      }
     },
   },
-  /*created() {
-    axios.get("http://localhost:5000/recipes").then((response) => {
-      console.log(response.data);
-    });
-  },*/
 };
 </script>
