@@ -1,8 +1,14 @@
 <template>
   <div>
     <div class="row">
-      {{ recipe._id }}
-      {{ recipe.title }}
+      <p style="display: none">{{ recipe._id }}</p>
+      <h4>{{ recipe.title }}</h4>
+      <img src="../../assets/logo.png" alt="" />
+      <p>Durée : {{ recipe.time | formatDate }}</p>
+      <p>Ingrédients :</p>
+      <ul>
+        <li>{{ recipe.products }}</li>
+      </ul>
     </div>
     <div class="row">
       <div class="col s6">
@@ -66,3 +72,14 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+img {
+  height: 200px;
+  width: 200px;
+}
+
+p {
+  font-size: 16px;
+}
+</style>

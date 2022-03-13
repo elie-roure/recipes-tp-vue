@@ -31,4 +31,8 @@ export default {
 a {
   color: white !important;
 }
+
+.btn {
+  background-color: #C36B6F;
+}
 </style>

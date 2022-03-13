@@ -24,7 +24,7 @@
       </div>
     </form>
     <a class="waves-effect waves-light btn" v-on:click="createRecipe()">
-      Modifier
+      Créer
     </a>
   </div>
 </template>
