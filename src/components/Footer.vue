@@ -3,10 +3,8 @@
     <div class="container">
       <div class="row">
         <div class="footer">
-          <h5 class="white-text">Footer Content</h5>
-          <p class="grey-text text-lighten-4">
-            You can use rows and columns here to organize your footer content.
-          </p>
+          <h5 class="white-text">CONTACT</h5>
+          <p class="grey-text text-lighten-4">Recipes & Co : 0412345678</p>
         </div>
       </div>
     </div>

@@ -1,12 +1,9 @@
 <template>
   <nav>
     <div class="nav-wrapper">
-      <div class="right">
-        <router-link to="/login">Se connecter</router-link>
-      </div>
-      <ul id="nav-mobile" class="left hide-on-med-and-down">
-        <li><router-link to="/">Home</router-link></li>
-        <li><router-link to="/createRecipe">Ajouter Recettes</router-link></li>
+      <router-link to="/" class="brand-logo left">Recipes & Co</router-link>
+      <ul class="right">
+        <li><router-link to="/login">Se connecter</router-link></li>
       </ul>
     </div>
   </nav>
@@ -25,7 +22,20 @@ export default {
 h4,
 a {
   margin: auto;
-  color: #35495e;
+  color: white;
+}
+
+.right {
+  margin-right: 10px;
+}
+
+ul li a {
+  font-size: 18px;
+}
+
+nav .brand-logo {
+  position: unset;
+  margin-left: 10px;
 }
 </style>
 

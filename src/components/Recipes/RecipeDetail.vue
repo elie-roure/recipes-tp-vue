@@ -14,7 +14,7 @@
           Modifier recette
         </a>
         <Modal v-if="this.showModalUpdate" @close="showModalUpdate = false">
-          <span slot="header"></span>
+          <span slot="footer"></span>
           <UpdateRecipe
             slot="body"
             :titleProp="recipe.title"

@@ -1,9 +1,14 @@
 <template>
   <div class="">
     <div class="row">
-      <h5>Recipes</h5>
+      <div>
+        <h4>OUR RECIPES</h4>
+        <a class="waves-effect waves-light btn"
+          ><router-link to="/createRecipe">Ajouter Recette</router-link></a
+        >
+      </div>
       <Recipe
-        class="col s3"
+        class="col s12 m3"
         v-for="(recipe, key) in recipes"
         :title="recipe.title"
         :time="recipe.time"
@@ -39,6 +44,13 @@ export default {
 </script>
 
 <style scoped>
+a {
+  color: white;
+}
+
+.btn {
+  margin-bottom: 10px;
+}
 .padding-left {
   padding-left: 5rem;
 }

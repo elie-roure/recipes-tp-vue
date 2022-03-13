@@ -1,25 +1,20 @@
 <template >
-  <div class="card clickable" v-on:click="afficheDetail">
+  <div class="card clickable medium" v-on:click="afficheDetail">
     <div class="card-image waves-effect waves-block waves-light">
       <img class="activator imageRecette" v-bind:src="srcImage" />
     </div>
     <div class="card-content">
-      <span class="card-title activator grey-text text-darken-4">{{
-        title
-      }}</span>
-      <span class="card-body activator grey-text text-darken-4">{{
-        time | formatDate
-      }}</span>
-      <p><a href="#">Détails</a></p>
+      <span class="card-title activator grey-text text-darken-4">
+        {{ title }}
+      </span>
+      <span class="card-body activator grey-text text-darken-4">
+        {{ time | formatDate }}
+      </span>
     </div>
     <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4"
-        >Card Title<i class="material-icons right">close</i></span
-      >
-      <p>
-        Here is some more information about this product that is only revealed
-        once clicked on.
-      </p>
+      <span class="card-title grey-text text-darken-4">
+        Card Title<i class="material-icons right">close</i>
+      </span>
     </div>
   </div>
 </template>
@@ -75,6 +70,11 @@ export default {
   width: 15rem;
   height: 15rem;
   margin: auto;
+}
+
+.card-title {
+  font-size: 22px;
+  font-weight: 500;
 }
 </style>
 
