@@ -43,6 +43,7 @@ export default {
 
   methods: {
     createRecipe() {
+      let self = this;
       store.dispatch({
         type: type.CreateRecipe,
         title: this.title,
@@ -51,6 +52,7 @@ export default {
         image: this.file,
         file: this.file,
       });
+      self.$router.push({ name: "Home" });
     },
   },
 };

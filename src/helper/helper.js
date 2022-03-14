@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const urlServer = "http://localhost:62000";
+export const urlServer = "https://recipes-tp.herokuapp.com";
 /*LOGIN */
 export async function loginHelper(username, pwd) {
   let res;
@@ -69,7 +69,7 @@ export async function getAllRecipesHelper() {
 
 export async function getOneRecipesHelper(id) {
   let recipe;
-  await axios.get(`http://localhost:62000/recipes/${id}`).then((response) => {
+  await axios.get(`${urlServer}/recipes/${id}`).then((response) => {
     recipe = response.data;
   });
   return recipe;

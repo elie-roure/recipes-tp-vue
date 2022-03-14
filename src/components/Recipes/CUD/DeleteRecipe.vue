@@ -12,11 +12,12 @@ export default {
   props: ["_id"],
   methods: {
     deleteRecipe() {
+      let self = this;
       store.dispatch({
         type: type.DeleteRecipe,
         _id: this._id,
       });
-      this.$router.push({ name: "Home" });
+      self.$router.push({ name: "Home" });
     },
   },
 };

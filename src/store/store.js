@@ -42,13 +42,14 @@ export const store = new Vuex.Store({
     },
     deleteRecipe(state, payload) {
       Helper.deleteRecipeHelper(state.jwt, payload._id);
+      state.recipes.remove((recipe) => (recipe._id = payload._id));
     }
   },
   actions: {
     addJwt(context, payload) {
       context.commit("addJwt", payload);
     },
-    getAllRecipes(context, payload) {
+    getAllRecipes(context) {
       context.commit("getAllRecipes");
     },
     updateRecipe(context, payload) {
