@@ -36,7 +36,7 @@ export default {
   components: {},
 
   methods: {
-    seConnecter: async function (e) {
+    seConnecter: async function () {
       let self = this;
       let res = await Helper.loginHelper(this.username, this.pwd);
       if (res !== undefined) {

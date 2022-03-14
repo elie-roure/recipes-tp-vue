@@ -34,7 +34,7 @@ export default {
     };
   },
   methods: {
-    seConnecter: async function (e) {
+    seConnecter: async function () {
       let self = this;
       let res = await Helper.loginHelper(this.username, this.password);
       if (res !== undefined) {
@@ -46,7 +46,7 @@ export default {
         self.$router.push({ name: "Home" });
       }
     },
-    senregistrer: async function (e) {
+    senregistrer: async function () {
       let self = this;
       const params = JSON.stringify({
         name: this.name,
