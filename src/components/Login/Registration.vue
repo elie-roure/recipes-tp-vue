@@ -11,7 +11,9 @@
     <input type="text" name="username" id="username" v-model="username" />
     <label for="password">Mot de passe : </label>
     <input type="password" name="password" id="password" v-model="password" />
-    <button @click="senregistrer()">Enregistrer</button>
+    <a v-on:click="senregistrer()" class="waves-effect waves-light btn">
+      S'Enregistrer
+    </a>
   </div>
 </template>
 

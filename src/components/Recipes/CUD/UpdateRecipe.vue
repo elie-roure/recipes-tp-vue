@@ -4,11 +4,11 @@
       <div class="row">
         <div class="input-field col s6">
           <input id="title" type="text" class="validate" v-model="title" />
-          <label for="title">Titre</label>
+          <label class="active" for="title">Titre</label>
         </div>
         <div class="input-field col s6">
           <input id="time" type="time" class="validate" v-model="time" />
-          <label for="time">Temps</label>
+          <label class="active" for="time">Temps</label>
         </div>
       </div>
 
@@ -19,7 +19,7 @@
             class="materialize-textarea"
             v-model="products"
           ></textarea>
-          <label for="products">Ingredients</label>
+          <label class="active" for="products">Ingredients</label>
         </div>
       </div>
       <div class="row">

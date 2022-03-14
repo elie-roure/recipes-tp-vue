@@ -25,6 +25,11 @@ export default {
   margin: auto;
   justify-content: center;
 }
+footer {
+  position: absolute;
+  width: 100%;
+  top: 100%;
+}
 a {
   margin: auto;
 }

@@ -3,7 +3,7 @@
     <div class="row">
       <p style="display: none">{{ recipe._id }}</p>
       <h4>{{ recipe.title }}</h4>
-      <img src="../../assets/logo.png" alt="" />
+      <img v-bind:src="this.srcImage" alt="" />
       <p>Durée : {{ recipe.time | formatDate }}</p>
       <p>Ingrédients :</p>
       <ul>
@@ -20,7 +20,8 @@
           Modifier recette
         </a>
         <Modal v-if="this.showModalUpdate" @close="showModalUpdate = false">
-          <span slot="footer"></span>
+          <h5 slot="header">Modification recette</h5>
+
           <UpdateRecipe
             slot="body"
             :titleProp="recipe.title"
@@ -29,6 +30,7 @@
             :creatorProp="recipe.creator"
             :idProp="recipe._id"
           ></UpdateRecipe>
+          <span slot="footer"></span>
         </Modal>
       </div>
       <div class="col s6">
@@ -39,7 +41,7 @@
 </template>
 
 <script>
-import axios from "axios";
+import * as Helper from "@/helper/helper";
 import Modal from "@/components/Modal";
 import UpdateRecipe from "@/components/Recipes/CUD/UpdateRecipe";
 import DeleteRecipe from "@/components/Recipes/CUD/DeleteRecipe";
@@ -56,19 +58,25 @@ export default {
       recipe: "",
       showBtn: false,
       showModalUpdate: false,
+      srcImage: "",
     };
   },
   created() {},
   computed: mapState({
     user: (state) => state.user,
   }),
-  mounted() {
-    axios
-      .get(`http://localhost:62000/recipes/${this.$route.params.id}`)
-      .then((response) => {
-        this.recipe = response.data;
-        this.showBtn = this.user._id === this.recipe.creator;
-      });
+  async mounted() {
+    this.recipe = await Helper.getOneRecipesHelper(this.$route.params.id);
+    this.showBtn = this.user._id === this.recipe.creator;
+    if (
+      this.recipe.imageData !== undefined &&
+      this.recipe.imageData !== "" &&
+      this.recipe.imageData !== null
+    ) {
+      this.srcImage = this.recipe.imageData;
+    } else {
+      this.srcImage = "image/recette.jpg";
+    }
   },
 };
 </script>

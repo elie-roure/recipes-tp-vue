@@ -4,10 +4,11 @@
       <div class="modal-wrapper">
         <div class="modal-container">
           <div class="modal-header">
-            <slot name="header"> default header<button class="modal-default-button" @click="$emit('close')">
-                X
-              </button>
-               </slot>
+            <slot name="header"> default header </slot>
+
+            <a class="waves-effect waves-light btn" @click="$emit('close')">
+              X
+            </a>
           </div>
 
           <div class="modal-body">
@@ -15,10 +16,7 @@
           </div>
 
           <div class="modal-footer">
-            <slot name="footer">
-              default footer
-              
-            </slot>
+            <slot name="footer"> default footer </slot>
           </div>
         </div>
       </div>
@@ -52,7 +50,7 @@ export default {
 }
 
 .modal-container {
-  width: 300px;
+  width: 33%;
   margin: 0px auto;
   padding: 20px 30px;
   background-color: #fff;
@@ -67,6 +65,10 @@ export default {
   color: #42b983;
 }
 
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+}
 .modal-body {
   margin: 20px 0;
 }

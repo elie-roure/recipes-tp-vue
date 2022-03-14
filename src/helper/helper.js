@@ -66,3 +66,11 @@ export async function getAllRecipesHelper() {
   });
   return recipes;
 }
+
+export async function getOneRecipesHelper(id) {
+  let recipe;
+  await axios.get(`http://localhost:62000/recipes/${id}`).then((response) => {
+    recipe = response.data;
+  });
+  return recipe;
+}

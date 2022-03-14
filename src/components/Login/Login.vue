@@ -6,14 +6,16 @@
         <input type="text" name="username" id="username" v-model="username" />
         <label for="pwd">Password : </label>
         <input type="password" name="pwd" id="pwd" v-model="pwd" />
-        <button class="button is-primary" v-on:click="seConnecter()">
+        <a v-on:click="seConnecter()" class="waves-effect waves-light btn">
           Se connecter
-        </button>
+        </a>
       </div>
     </div>
     <div>
       <p>Pas encore de compte ?</p>
-      <router-link to="/register">S'enregistrer</router-link>
+      <p style="color: cadetblue">
+        <router-link to="/register">S'enregistrer</router-link>
+      </p>
     </div>
   </div>
 </template>

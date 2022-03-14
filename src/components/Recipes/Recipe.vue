@@ -35,11 +35,14 @@ export default {
     },
   },
   created() {
-    if (this.imageData !== undefined) {
+    if (
+      this.imageData !== undefined &&
+      this.imageData !== "" &&
+      this.imageData !== null
+    ) {
       this.srcImage = this.imageData;
     } else {
-      this.srcImage =
-        "https://recipestp-2fc5.restdb.io/media/6211906bf701f460000b0a6a";
+      this.srcImage = "image/recette.jpg";
     }
   },
 };

@@ -2,7 +2,7 @@
   <div class="">
     <div class="row">
       <div>
-        <h4>OUR RECIPES</h4>
+        <h4>NOS RECETTES</h4>
         <a class="waves-effect waves-light btn"
           ><router-link to="/createRecipe">Ajouter Recette</router-link></a
         >
