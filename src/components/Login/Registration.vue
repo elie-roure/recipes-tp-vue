@@ -11,7 +11,10 @@
     <input type="text" name="username" id="username" v-model="username" />
     <label for="password">Mot de passe : </label>
     <input type="password" name="password" id="password" v-model="password" />
-    <a v-on:click="senregistrer()" class="waves-effect waves-light btn">
+    <a
+      v-on:click="senregistrer()"
+      class="waves-effect waves-light btn register"
+    >
       S'Enregistrer
     </a>
   </div>
@@ -62,6 +65,12 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.register {
+  color: #ee6e73;
+}
+</style>
 
 
 
