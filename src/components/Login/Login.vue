@@ -13,7 +13,7 @@
     </div>
     <div>
       <p>Pas encore de compte ?</p>
-      <p style="color: cadetblue">
+      <p class="register">
         <router-link to="/register">S'enregistrer</router-link>
       </p>
     </div>
@@ -51,3 +51,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+p.register {
+  color: #ee6e73;
+}
+</style>
