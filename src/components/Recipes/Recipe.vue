@@ -11,11 +11,6 @@
         {{ time | formatDate }}
       </span>
     </div>
-    <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">
-        Card Title<i class="material-icons right">close</i>
-      </span>
-    </div>
   </div>
 </template>
 

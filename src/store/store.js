@@ -28,8 +28,14 @@ export const store = new Vuex.Store({
         imageData: payload.imageData
       };
       Helper.updateRecipeHelper(state.jwt, recipe);
+      let index = state.recipes.findIndex((recipe) => {
+        return recipe._id === payload._id;
+      });
+      state.recipes.splice(index, 1);
+      //state.recipes.remove((recipe) => (recipe._id = payload._id));
+      state.recipes.push(recipe);
     },
-    createRecipe(state, payload) {
+    async createRecipe(state, payload) {
       let recipe = {
         title: payload.title,
         products: payload.products,
@@ -38,11 +44,15 @@ export const store = new Vuex.Store({
         image: payload.image,
         file: payload.file
       };
-      Helper.createRecipeHelper(state.jwt, recipe);
+      recipe = await Helper.createRecipeHelper(state.jwt, recipe);
+      state.recipes.push(recipe);
     },
     deleteRecipe(state, payload) {
       Helper.deleteRecipeHelper(state.jwt, payload._id);
-      state.recipes.remove((recipe) => (recipe._id = payload._id));
+      let index = state.recipes.findIndex((recipe) => {
+        return recipe._id === payload._id;
+      });
+      state.recipes.splice(index, 1);
     }
   },
   actions: {

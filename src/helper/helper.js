@@ -53,10 +53,12 @@ export function deleteRecipeHelper(jwt, id) {
 }
 
 export function createRecipeHelper(jwt, recipe) {
+  let res;
   const config = { headers: { Authorization: `Bearer ${jwt}` } };
-  axios.post(`${urlServer}/recipes/`, recipe, config).then((response) => {
-    console.log(response);
+  axios.post(`${urlServer}/recipes/`, recipe, config).then(function (response) {
+    res = response;
   });
+  return res;
 }
 
 export async function getAllRecipesHelper() {

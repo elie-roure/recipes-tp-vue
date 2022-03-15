@@ -84,6 +84,15 @@ export default {
         _id: this.id,
         imageData: this.imageData,
       });
+      let recipe = {
+        title: this.title,
+        time: this.time,
+        products: this.products,
+        creator: this.creator,
+        _id: this.id,
+        imageData: this.imageData,
+      };
+      this.$emit("update", recipe);
     },
   },
 };

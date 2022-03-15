@@ -1,14 +1,22 @@
 <template>
   <div>
     <div class="row">
+      <div class="back-button">
+        <a class="waves-effect waves-light btn">
+          <router-link to="/" class="inline-items">
+            <i class="small material-icons">chevron_left</i>
+            Retour</router-link
+          >
+        </a>
+      </div>
       <p style="display: none">{{ recipe._id }}</p>
       <h4>{{ recipe.title }}</h4>
       <img v-bind:src="this.srcImage" alt="" />
       <p>Durée : {{ recipe.time | formatDate }}</p>
       <p>Ingrédients :</p>
-      <ul>
-        <li>{{ recipe.products }}</li>
-      </ul>
+      <div class="products">
+        <pre>{{ recipe.products }}</pre>
+      </div>
     </div>
     <div class="row">
       <div class="col s6">
@@ -29,8 +37,9 @@
             :productsProp="recipe.products"
             :creatorProp="recipe.creator"
             :idProp="recipe._id"
+            @update="UpdateRecipe($event)"
           ></UpdateRecipe>
-          <span slot="footer"></span>
+          <span slot="footer">Recette modifiée !</span>
         </Modal>
       </div>
       <div class="col s6">
@@ -61,6 +70,23 @@ export default {
       srcImage: "",
     };
   },
+  methods: {
+    UpdateRecipe: function (e) {
+      this.recipe = e;
+      this.InitImage();
+    },
+    InitImage: function () {
+      if (
+        this.recipe.imageData !== undefined &&
+        this.recipe.imageData !== "" &&
+        this.recipe.imageData !== null
+      ) {
+        this.srcImage = this.recipe.imageData;
+      } else {
+        this.srcImage = "image/recette.jpg";
+      }
+    },
+  },
   created() {},
   computed: mapState({
     user: (state) => state.user,
@@ -68,15 +94,7 @@ export default {
   async mounted() {
     this.recipe = await Helper.getOneRecipesHelper(this.$route.params.id);
     this.showBtn = this.user._id === this.recipe.creator;
-    if (
-      this.recipe.imageData !== undefined &&
-      this.recipe.imageData !== "" &&
-      this.recipe.imageData !== null
-    ) {
-      this.srcImage = this.recipe.imageData;
-    } else {
-      this.srcImage = "image/recette.jpg";
-    }
+    this.InitImage();
   },
 };
 </script>
@@ -89,5 +107,30 @@ img {
 
 p {
   font-size: 16px;
+}
+
+pre {
+  font: inherit;
+  margin: auto;
+  width: 33%;
+  padding: 1rem;
+  background-color: whitesmoke;
+}
+
+.products {
+  text-align: left;
+  margin: auto;
+}
+
+.inline-items {
+  display: inline-flex;
+  color: white;
+  text-decoration: none;
+}
+
+.back-button {
+  display: flex;
+  margin-left: 2%;
+  margin-top: 2%;
 }
 </style>
