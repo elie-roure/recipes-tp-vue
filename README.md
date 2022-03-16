@@ -4,9 +4,9 @@
 		Partie vue ->  https://github.com/elie-roure/recipes-tp-vue
 		Partie node -> https://github.com/ylona-fabiani/recipes-tp
 
-### Instalation :
-	Telecharger les deux projets (vue et node)
-	Dans chaque repertoire executer la commande suivante : `npm install`
+### Installation :
+	Télécharger les deux projets (vue et node)
+	Dans chaque répertoire exécuter la commande suivante : `npm install`
 	Lancer le projet node avec la commande : `node index.js`
 	Lancer le projet vue avec la commande : `npm run serve`
 
