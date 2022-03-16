@@ -1,10 +1,15 @@
-# tp-vueJs
+# Recipe & Co
 
-à faire vite fait :
+#### Lien important :
+		Partie vue ->  https://github.com/elie-roure/recipes-tp-vue
+		Partie node -> https://github.com/ylona-fabiani/recipes-tp
 
-- Dire quand modifiée
-- Ajouter nom de login à la place de se connecter
-- Liste d'ingrédients soit <li> dans produits
-  soit split les " " et créer des <li>
+###Instalation :
+	Telecharger les deux projets (vue et node)
+	Dans chaque repertoire executer la commande suivante : `npm install`
+	Lancer le projet node avec la commande : `node index.js`
+	Lancer le projet vue avec la commande : `npm run serve`
 
-Created with CodeSandbox
+###URL de production :
+	Partie vue -> https://unruffled-johnson-e0a9ad.netlify.app/#/
+	Partie node -> https://recipes-tp.herokuapp.com/
